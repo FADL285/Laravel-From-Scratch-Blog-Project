@@ -1,21 +1,20 @@
-body {
-    background: white;
-    color: #222222;
-    max-width: 700px;
-    margin: auto;
-    font-family: sans-serif;
+::-webkit-scrollbar {
+    width: 0.4rem;
+    height: 0.15rem;
+    background: rgba(0,0,0, 0.15);
 }
 
-p {
-    line-height: 1.6;
+::-webkit-scrollbar-thumb {
+    background-color: rgba(59,130,246, 0.9);
+    outline: 1px solid rgba(59,130,246, 0.9);
+    border-radius: 50rem;
 }
 
-article + article {
-    margin-top: 3rem;
-    padding-top: 3rem;
-    border-top: 1px solid #555555;
+::selection {
+    background-color: rgba(59,130,246, 0.9);
+    color: white;
 }
 
-.text-center {
-    text-align: center;
+div::-webkit-scrollbar {
+    width: 0.2rem;
 }
