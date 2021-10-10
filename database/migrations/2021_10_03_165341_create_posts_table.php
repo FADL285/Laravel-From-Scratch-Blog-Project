@@ -13,21 +13,29 @@ class CreatePostsTable extends Migration
 {
     public function up()
     {
-        Schema::create("posts", function (Blueprint $table) {
-            $table->bigIncrements("id");
-            $table->string("slug")->unique();
-            $table->string("title");
-            $table->text("excerpt");
-            $table->text("body");
+        Schema::create('posts', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('slug')->unique();
+            $table->string('title');
+            $table->text('excerpt');
+            $table->text('body');
             $table->foreignId('user_id');
             $table->foreignId('category_id');
             $table->timestamps();
-            $table->timestamp("published_at")->nullable();
+            $table->timestamp('published_at')->nullable();
         });
+
+        // Full text index - for search
+        DB::statement(
+            'ALTER TABLE `posts` ADD FULLTEXT INDEX posts_title_body_idx(title,body)'
+        );
     }
 
     public function down()
     {
-        Schema::dropIfExists("posts");
+        Schema::table('posts', function ($table) {
+            $table->dropIndex('posts_title_body_idx');
+        });
+        Schema::dropIfExists('posts');
     }
 }

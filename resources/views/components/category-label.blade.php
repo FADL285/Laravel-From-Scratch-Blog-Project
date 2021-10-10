@@ -1,7 +1,7 @@
 @props(['category'])
 
 <a
-    href="/categories/{{ $category->slug }}"
+    href="{{ route('home') }}?category={{ $category->slug }}"
     class="
           px-3
           py-1

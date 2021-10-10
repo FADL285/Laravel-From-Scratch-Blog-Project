@@ -1,6 +1,6 @@
 <nav class="md:flex md:justify-between md:items-center">
     <div>
-        <a href="/">
+        <a href="{{ route('home') }}">
             <img
                 src="/images/logo.svg"
                 alt="Laracasts Logo"
@@ -11,7 +11,7 @@
     </div>
 
     <div class="mt-8 md:mt-0">
-        <a href="/" class="text-xs font-bold uppercase">Home Page</a>
+        <a href="{{ route('home') }}" class="text-xs font-bold uppercase">Home Page</a>
 
         <a
             href="#"

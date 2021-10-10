@@ -1,7 +1,7 @@
 @props(['post'])
 
 <article
-  class="
+    class="
     transition-colors
     duration-300
     hover:bg-gray-100
@@ -10,51 +10,55 @@
     rounded-xl
   "
 >
-  <div class="py-6 px-5 lg:flex">
-    <div class="flex-1 lg:mr-8">
-      {{--    TODO: Add img    --}}
-      <img
-        src="/images/illustration-1.png"
-        alt="Blog Post illustration"
-        class="rounded-xl"
-      />
-    </div>
-
-    <div class="flex-1 flex flex-col justify-between">
-      <header class="mt-8 lg:mt-0">
-        <div class="space-x-2">
-            <x-category-label :category="$post->category" />
+    <div class="py-6 px-5 lg:flex">
+        <div class="flex-1 lg:mr-8">
+            {{--    TODO: Add img    --}}
+            <img
+                src="/images/illustration-1.png"
+                alt="Blog Post illustration"
+                class="rounded-xl"
+            />
         </div>
 
-        <div class="mt-4">
-          <h1 class="text-3xl">
-              <a href="/posts/{{ $post->slug }}">
-                  {{ $post->title }}
-              </a>
-          </h1>
+        <div class="flex-1 flex flex-col justify-between">
+            <header class="mt-8 lg:mt-0">
+                <div class="space-x-2">
+                    <x-category-label :category="$post->category"/>
+                </div>
 
-          <span class="mt-2 block text-gray-400 text-xs">
+                <div class="mt-4">
+                    <h1 class="text-3xl">
+                        <a href="{{ route('post', $post->slug) }}">
+                            {{ $post->title }}
+                        </a>
+                    </h1>
+
+                    <span class="mt-2 block text-gray-400 text-xs">
             Published <time>{{ $post->created_at->diffForHumans() }}</time>
           </span>
-        </div>
-      </header>
+                </div>
+            </header>
 
-      <div class="text-sm mt-2 space-y-4">
-          {!! $post->excerpt !!}
-      </div>
+            <div class="text-sm mt-2 space-y-4">
+                {!! $post->excerpt !!}
+            </div>
 
-      <footer class="flex justify-between items-center mt-8">
-        <div class="flex items-center text-sm">
-          <img src="/images/lary-avatar.svg" alt="Lary avatar" />
-          <div class="ml-3">
-            <h5 class="font-bold"><a href="/authors/{{ $post->author->username }}">{{ $post->author->name }}</a></h5>
-          </div>
-        </div>
+            <footer class="flex justify-between items-center mt-8">
+                <div class="flex items-center text-sm">
+                    <img src="/images/lary-avatar.svg" alt="Lary avatar"/>
+                    <div class="ml-3">
+                        <h5 class="font-bold">
+                            <a href="{{ route('home') }}?author={{ $post->author->username }}">
+                                {{ $post->author->name }}
+                            </a>
+                        </h5>
+                    </div>
+                </div>
 
-        <div class="hidden lg:block">
-          <a
-            href="/posts/{{ $post->slug }}"
-            class="
+                <div class="hidden lg:block">
+                    <a
+                        href="{{ route('post', $post->slug) }}"
+                        class="
               transition-colors
               duration-300
               text-xs
@@ -65,10 +69,10 @@
               py-2
               px-8
             "
-            >Read More</a
-          >
+                    >Read More</a
+                    >
+                </div>
+            </footer>
         </div>
-      </footer>
     </div>
-  </div>
 </article>
