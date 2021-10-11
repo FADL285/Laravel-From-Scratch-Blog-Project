@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\SessionsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,8 +15,21 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::redirect('/', '/posts');
 
-Route::get('/posts', [PostController::class, 'index'])->name('home');
+//Route::redirect('/', '/posts');
+Route::get('/', [PostController::class, 'index'])->name('home');
 
-Route::get('/posts/{post:slug}', [PostController::class, 'show'])->name('post');
+Route::get('posts/{post:slug}', [PostController::class, 'show'])->name('post');
+
+Route::group(['middleware' => 'guest'], function () {
+    Route::get('register', [RegisterController::class, 'create'])->name(
+        'register'
+    );
+    Route::post('register', [RegisterController::class, 'store']);
+
+    Route::get('login', fn() => 'login page')->name('login');
+});
+
+Route::post('logout', [SessionsController::class, 'destroy'])
+    ->name('logout')
+    ->middleware('auth');
