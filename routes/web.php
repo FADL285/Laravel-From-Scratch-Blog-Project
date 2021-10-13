@@ -27,7 +27,8 @@ Route::group(['middleware' => 'guest'], function () {
     );
     Route::post('register', [RegisterController::class, 'store']);
 
-    Route::get('login', fn() => 'login page')->name('login');
+    Route::get('login', [SessionsController::class, 'create'])->name('login');
+    Route::post('login', [SessionsController::class, 'store'])->name('login');
 });
 
 Route::post('logout', [SessionsController::class, 'destroy'])
