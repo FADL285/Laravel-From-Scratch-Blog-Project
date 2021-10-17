@@ -14,16 +14,14 @@
             </header>
 
             <div class="mt-6">
-                            <textarea
-                                name="body"
-                                class="w-full text-sm focus:outline-none focus:ring p-3"
-                                rows="4"
-                                placeholder="Quick, thing of something to say!"
-                                required minlength="4"></textarea>
+                <textarea
+                    name="body"
+                    class="w-full text-sm focus:outline-none focus:ring p-3"
+                    rows="4"
+                    placeholder="Quick, thing of something to say!"
+                    required minlength="4"></textarea>
 
-                @error('body')
-                <span class="text-sm text-red-500">{{ $message }}</span>
-                @enderror
+                <x-error-message name="body"/>
             </div>
 
             <div class="flex justify-end mt-6 pt-6 border-t border-gray-200">

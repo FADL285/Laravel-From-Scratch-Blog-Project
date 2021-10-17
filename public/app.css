@@ -1,12 +1,16 @@
+html {
+    scroll-behavior: smooth;
+}
+
 ::-webkit-scrollbar {
     width: 0.4rem;
     height: 0.15rem;
-    background: rgba(0,0,0, 0.15);
+    background: rgba(0, 0, 0, 0.15);
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: rgba(59,130,246, 0.9);
-    outline: 1px solid rgba(59,130,246, 0.9);
+    background-color: rgba(59, 130, 246, 0.9);
+    outline: 1px solid rgba(59, 130, 246, 0.9);
     border-radius: 50rem;
 }
 
@@ -18,3 +22,4 @@
 div::-webkit-scrollbar {
     width: 0.2rem;
 }
+

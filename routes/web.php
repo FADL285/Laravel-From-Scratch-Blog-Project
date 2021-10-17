@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\PostCommentsController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegisterController;
@@ -24,7 +25,9 @@ Route::get('posts/{post:slug}', [PostController::class, 'show'])->name('post');
 Route::post('posts/{post:slug}/comments', [
     PostCommentsController::class,
     'store'
-])->name('comments');
+])
+    ->name('comments')
+    ->middleware('auth');
 
 Route::group(['middleware' => 'guest'], function () {
     Route::get('register', [RegisterController::class, 'create'])->name(
@@ -39,3 +42,5 @@ Route::group(['middleware' => 'guest'], function () {
 Route::post('logout', [SessionsController::class, 'destroy'])
     ->name('logout')
     ->middleware('auth');
+
+Route::post('newsletter', NewsletterController::class)->name('newsletter');
