@@ -1,4 +1,4 @@
-<x-layout>
+<x-layout.app>
     <div class="flex flex-col mt-16 md:mt-24">
         <div class="container max-w-lg mx-auto flex-1 flex flex-col items-center justify-center px-2">
             <div class="bg-gray-50 px-6 py-8 rounded shadow-md text-black w-full">
@@ -44,4 +44,4 @@
             </div>
         </div>
     </div>
-</x-layout>
+</x-layout.app>

@@ -20,11 +20,11 @@
 
 <body style="font-family: Open Sans, sans-serif">
 <section class="px-6 py-8">
-    <x-navbar/>
+    <x-layout.navbar/>
 
     {{ $slot }}
 
-    <x-footer/>
+    <x-layout.footer/>
 </section>
 
 <x-flash/>
