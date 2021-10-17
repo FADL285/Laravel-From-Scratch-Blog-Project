@@ -11,7 +11,6 @@ use Illuminate\Validation\ValidationException;
 
 class SessionsController extends Controller
 {
-
     public function create()
     {
         return view('sessions.create');
@@ -28,7 +27,7 @@ class SessionsController extends Controller
     {
         // input validation
         $validate = request()->validate([
-            'email'    => ['required', 'email'],
+            'email' => ['required', 'email'],
             'password' => ['required']
         ]);
 
