@@ -44,3 +44,12 @@ Route::post('logout', [SessionsController::class, 'destroy'])
     ->middleware('auth');
 
 Route::post('newsletter', NewsletterController::class)->name('newsletter');
+
+// Admin
+Route::get('admin/posts/create', [PostController::class, 'create'])
+    ->name('posts.create')
+    ->middleware('admin');
+
+Route::post('admin/posts', [PostController::class, 'store'])
+    ->name('posts.create')
+    ->middleware('admin');

@@ -6,13 +6,8 @@
     <div class="space-y-2 lg:space-y-0 lg:space-x-4 mt-5">
         <!--  Category -->
         <x-category-dropdown/>
-        <!-- Other Filters -->
-    {{--        <x-dropdown>--}}
-    {{--            <x-slot name="triggerName">Other Filters</x-slot>--}}
 
-    {{--            <x-dropdown-item href="#">Account settings</x-dropdown-item>--}}
-    {{--        </x-dropdown>--}}
-    <!-- Search -->
+        <!-- Search -->
         <div class="relative flex lg:inline-flex items-center justify-center">
             <form method="GET" action="{{ route('home') }}">
                 @if(request('category'))

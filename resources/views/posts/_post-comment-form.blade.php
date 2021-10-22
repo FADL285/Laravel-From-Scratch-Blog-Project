@@ -1,5 +1,5 @@
 @auth()
-    <x-panel>
+    <x-layout.panel>
         <form method="POST" action="{{ route('comments', $post->slug) }}">
             @csrf
 
@@ -28,7 +28,7 @@
                 <x-submit-button>Post</x-submit-button>
             </div>
         </form>
-    </x-panel>
+    </x-layout.panel>
 @else
     <p class="font-semibold text-center">
         <a href="{{ route('register') }}" class="hover:underline">Register</a>

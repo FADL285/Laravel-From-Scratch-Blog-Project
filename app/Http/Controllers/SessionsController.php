@@ -32,7 +32,7 @@ class SessionsController extends Controller
         ]);
 
         // auth failed
-        if (!auth()->attempt($validate)) {
+        if (!auth()->attempt($validate, request()->has('remember_me'))) {
             throw ValidationException::withMessages([
                 'error' => 'These credentials do not match our records.'
             ]);
