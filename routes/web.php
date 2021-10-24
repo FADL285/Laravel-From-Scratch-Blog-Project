@@ -50,6 +50,6 @@ Route::get('admin/posts/create', [PostController::class, 'create'])
     ->name('posts.create')
     ->middleware('admin');
 
-Route::post('admin/posts', [PostController::class, 'store'])
+Route::post('admin/posts/create', [PostController::class, 'store'])
     ->name('posts.create')
     ->middleware('admin');

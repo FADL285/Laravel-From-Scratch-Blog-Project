@@ -42,7 +42,7 @@
                     </button>
                 </div>
 
-                <x-error-message name="email"/>
+                <x-form.error name="email"/>
             </form>
         </div>
     </div>

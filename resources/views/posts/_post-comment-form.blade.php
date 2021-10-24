@@ -16,16 +16,16 @@
             <div class="mt-6">
                 <textarea
                     name="body"
-                    class="w-full text-sm focus:outline-none focus:ring p-3"
+                    class="w-full text-sm focus:outline-none focus:ring p-3 border border-gray-200 rounded-md"
                     rows="4"
                     placeholder="Quick, thing of something to say!"
                     required minlength="4"></textarea>
 
-                <x-error-message name="body"/>
+                <x-form.error name="body"/>
             </div>
 
             <div class="flex justify-end mt-6 pt-6 border-t border-gray-200">
-                <x-submit-button>Post</x-submit-button>
+                <x-form.submit-btn-sm>Post</x-form.submit-btn-sm>
             </div>
         </form>
     </x-layout.panel>

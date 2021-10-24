@@ -5,56 +5,12 @@
                 <h1 class="mb-8 text-3xl text-center">Sign up</h1>
                 <form method="POST" action="{{ route('register') }}">
                     @csrf
-
-                    <div class="mb-4">
-                        <input
-                            type="text"
-                            class="block border border-grey-light w-full p-3 rounded"
-                            name="name"
-                            value="{{ old('name') }}"
-                            required
-                            placeholder="Full Name"/>
-                        <x-error-message name="name"/>
-                    </div>
-
-                    <div class="mb-4">
-                        <input
-                            type="text"
-                            class="block border border-grey-light w-full p-3 rounded"
-                            name="username"
-                            value="{{ old('username') }}"
-                            required
-                            placeholder="Username"/>
-                        <x-error-message name="username"/>
-                    </div>
-
-                    <div class="mb-4">
-                        <input
-                            type="email"
-                            class="block border border-grey-light w-full p-3 rounded"
-                            name="email"
-                            value="{{ old('email') }}"
-                            required
-                            placeholder="Email"/>
-                        <x-error-message name="email"/>
-                    </div>
-
-                    <div class="mb-4">
-                        <input
-                            type="password"
-                            class="block border border-grey-light w-full p-3 rounded"
-                            name="password"
-                            required
-                            placeholder="Password"/>
-                        <x-error-message name="password"/>
-                    </div>
-
-                    <button
-                        type="submit"
-                        class="w-full text-center py-3 rounded transition-colors bg-blue-500 text-white font-semibold hover:bg-blue-600 focus:outline-none my-1"
-                    >
-                        Create Account
-                    </button>
+                    <x-form.input name="name" label="Full Name" placeholder="Mohamed Fadl" autocomplete="name"/>
+                    <x-form.input name="username" placeholder="fadl285"/>
+                    <x-form.input type="email" name="email" placeholder="fadl@admin.com" autocomplete="email"/>
+                    <x-form.input type="password" name="password" placeholder="your password"
+                                  autocomplete="new-password"/>
+                    <x-form.submit-btn-lg>Create Account</x-form.submit-btn-lg>
                 </form>
 
                 <div class="text-center text-sm text-grey-dark mt-4">

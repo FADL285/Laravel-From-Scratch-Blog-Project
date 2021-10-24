@@ -2,7 +2,7 @@
     <div>
         {{--     trigger   --}}
         <button @click="open = !open" type="button"
-                class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-semibold text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-blue-500 max-w-xs"
+                {{ $attributes(['class' => 'inline-flex justify-center w-full rounded-md px-4 bg-white  text-gray-700  focus:outline-none max-w-xs']) }}
                 id="category-button" aria-expanded="true" aria-haspopup="true">
             <span class="overflow-ellipsis whitespace-nowrap overflow-hidden">
                 {{ $triggerName }}

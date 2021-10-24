@@ -5,42 +5,11 @@
                 <h1 class="mb-8 text-3xl text-center">Log In!</h1>
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
-
-                    <x-errors-bag/>
-
-                    <div class="mb-4">
-                        <input
-                            type="email"
-                            class="block border border-grey-light w-full p-3 rounded"
-                            name="email"
-                            value="{{ old('email') }}"
-                            required
-                            placeholder="Email"/>
-                    </div>
-
-                    <div class="mb-4">
-                        <input
-                            type="password"
-                            class="block border border-grey-light w-full p-3 rounded"
-                            name="password"
-                            required autocomplete="current-password"
-                            placeholder="Password"/>
-                    </div>
-
-                    <!-- Remember Me -->
-                    <div class="mb-4">
-                        <label for="remember_me" class="inline-flex items-center">
-                            <input id="remember_me" type="checkbox" name="remember" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-                            <span class="ml-2 text-sm text-gray-600">Remember me</span>
-                        </label>
-                    </div>
-
-                    <button
-                        type="submit"
-                        class="w-full text-center py-3 rounded transition-colors bg-blue-500 text-white font-semibold hover:bg-blue-600 focus:outline-none my-1"
-                    >
-                        Log In
-                    </button>
+                    <x-form.errors/>
+                    <x-form.input type="email" name="email" autocomplete="username"/>
+                    <x-form.input type="password" name="password" autocomplete="current-password" />
+                    <x-form.checkbox name="remember">Remember Me</x-form.checkbox>
+                    <x-form.submit-btn-lg>Log In</x-form.submit-btn-lg>
                 </form>
             </div>
 
