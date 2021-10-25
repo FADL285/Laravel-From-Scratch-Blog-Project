@@ -15,11 +15,16 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Post extends Model
 {
+
     use HasFactory;
 
     protected $guarded = [];
-
     protected $with = ['category', 'author'];
+
+    public function getRouteKeyName(): string
+    {
+        return 'slug';
+    }
 
     public function scopeFilter($query, array $filters): void
     {

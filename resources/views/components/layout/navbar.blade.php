@@ -20,16 +20,19 @@
                     Welcome, {{ auth()->user()->name }}
                 </x-slot>
 
-                <x-dropdown-item
-                    href="#"
-                    :active="false">
-                    Dashboard
-                </x-dropdown-item>
-                <x-dropdown-item
-                    href="{{ route('posts.create') }}"
-                    :active="request()->routeIs('posts.create')">
-                    New Post
-                </x-dropdown-item>
+                @can('admin')
+                    <x-dropdown-item
+                        href="{{ route('posts.index') }}"
+                        :active="request()->routeIs('posts.index')">
+                        Dashboard
+                    </x-dropdown-item>
+                    <x-dropdown-item
+                        href="{{ route('posts.create') }}"
+                        :active="request()->routeIs('posts.create')">
+                        New Post
+                    </x-dropdown-item>
+                @endcan
+
                 <x-dropdown-item
                     href="#logout" x-data="{}" @click.prevent="document.getElementById('logout-form').submit()"
                 >

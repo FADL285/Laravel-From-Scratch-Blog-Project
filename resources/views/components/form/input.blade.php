@@ -7,10 +7,10 @@
         class="block border border-grey-light w-full p-3 rounded focus:outline-none focus:ring"
         name="{{ $name }}"
         id="{{ $name }}"
-        value="{{ old($name) }}"
-        required
         placeholder="{{ ucwords($placeholder ?:$name) }}"
-        {{ $attributes }}
+        {{ $attributes(['value' => old($name)]) }}
     />
     <x-form.error :name="$name"/>
 </div>
+
+

@@ -6,8 +6,8 @@
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
                     <x-form.errors/>
-                    <x-form.input type="email" name="email" autocomplete="username"/>
-                    <x-form.input type="password" name="password" autocomplete="current-password" />
+                    <x-form.input type="email" name="email" autocomplete="username" required/>
+                    <x-form.input type="password" name="password" autocomplete="current-password" required/>
                     <x-form.checkbox name="remember">Remember Me</x-form.checkbox>
                     <x-form.submit-btn-lg>Log In</x-form.submit-btn-lg>
                 </form>

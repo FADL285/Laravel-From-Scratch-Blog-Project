@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\PostCommentsController;
 use App\Http\Controllers\PostController;
@@ -21,8 +22,8 @@ use Illuminate\Support\Facades\Route;
 //Route::redirect('/', '/posts');
 Route::get('/', [PostController::class, 'index'])->name('home');
 
-Route::get('posts/{post:slug}', [PostController::class, 'show'])->name('post');
-Route::post('posts/{post:slug}/comments', [
+Route::get('posts/{post}', [PostController::class, 'show'])->name('post');
+Route::post('posts/{post}/comments', [
     PostCommentsController::class,
     'store'
 ])
@@ -46,10 +47,7 @@ Route::post('logout', [SessionsController::class, 'destroy'])
 Route::post('newsletter', NewsletterController::class)->name('newsletter');
 
 // Admin
-Route::get('admin/posts/create', [PostController::class, 'create'])
-    ->name('posts.create')
-    ->middleware('admin');
-
-Route::post('admin/posts/create', [PostController::class, 'store'])
-    ->name('posts.create')
-    ->middleware('admin');
+Route::group(['middleware' => 'can:admin', 'prefix' => 'admin'], function () {
+    Route::redirect('/', 'posts');
+    Route::resource('posts', AdminController::class)->except('show');
+});
